@@ -1,0 +1,260 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+  font-family: "Roboto Mono", monospace;
+  box-sizing: border-box;
+  color: var(--text-color);
+}
+:root {
+  --text-color: white;
+  --bg-url: url(./img/mobile360.jpg);
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(255, 255, 255, 0.1);
+  --surface-color-hover: rgba(255, 255, 255, 0.05);
+  --highlight-color: rgba(255, 255, 255, 0.05);
+  --switch-bg-url: url(moon.svg);
+}
+
+.light {
+  --text-color: black;
+  --bg-url: url(./img/light.png);
+  --stroke-color: rgba(0, 0, 0, 0.5);
+  --surface-color: rgba(0, 0, 0, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(0, 0, 0, 0.05);
+  --switch-bg-url: url(sun.svg);
+}
+
+body {
+  /* background-image: url(./img/mobile360.jpg);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover; */
+
+  background: var(--bg-url) no-repeat top center/cover;
+  /* color: var(--text-color); */
+}
+#container {
+  width: 360px;
+  margin: 56px auto 0px;
+  padding: 0 24px;
+  /* padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 20px; */
+  /* border: 1px solid #e2e8f0; */
+  /* border-radius: 2.5rem; */
+}
+/* profile */
+
+#profile img {
+  width: 112px;
+  /* display: block;
+  margin: auto; */
+  border-radius: 50%;
+  -webkit-backdrop-filter: blur(4px);
+}
+
+#profile {
+  text-align: center;
+  padding: 24px;
+}
+
+#profile p {
+  font-weight: 500;
+  line-height: 24px;
+  margin-top: 8px;
+}
+
+/* switch */
+#switch {
+  /* border: 1px solid red; */
+  position: relative;
+  width: 64px;
+  margin: 4px auto;
+}
+
+#switch button {
+  width: 32px;
+  height: 32px;
+  background: white var(--switch-bg-url) no-repeat center;
+  border: 0;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#switch span {
+  display: block;
+  width: 64px;
+  height: 24px;
+  /* surface-color-dark-mode */
+
+  background: var(--surface-color);
+  /* stroke-color-dark-mode */
+
+  border: 1px solid var(--stroke-color);
+  -webkit-backdrop-filter: blur(4px);
+  /* Note: backdrop-filter has minimal browser support */
+
+  border-radius: 9999px;
+}
+
+.light #switch button {
+  right: 0;
+  left: initial;
+}
+
+/* links */
+
+ul {
+  list-style: none; /*remove os pontinhos da lista*/
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px 0;
+}
+ul li a {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* traz os elementos pro centro da tela, da mesma forma pra esquerda ou direita com left ou right, acho que top, top-left, top-right, bottom, bottom-right e bottom left tambem se aplicam nesse contexto de alinhar os itens dentro da caixa*/
+  padding: 16px 24px;
+  /* se for texto um text-align: center; tambem funcionaria se no lugar de display: flex; estivesse block; */
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  border-radius: 8px;
+  -webkit-backdrop-filter: blur(4px);
+  font-weight: 500;
+
+  text-decoration: none; /* podendo ser underline ou overline pra colocar o sublinhado em cima ou em baixo */
+  transition: 1.3s;
+
+  /*all*/
+}
+
+ul li a:hover {
+  /* margin-top: 8px; */
+
+  margin: 8px;
+  transition: 0.31s;
+  background: var(--surface-color-hover);
+  border: 1.5px solid var(--stroke-color);
+  /* color: #52555a; */
+}
+
+#social-links {
+  display: flex;
+  justify-content: center;
+  padding: 24px 0;
+  /* gap: 16px; */
+  font-size: 24px;
+}
+#social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  transition: 0.2s;
+  border-radius: 50%;
+}
+#social-links a:hover {
+  background: var(--highlight-color);
+}
+footer {
+  padding: 24px 0;
+  text-align: center;
+}
+
+footer a {
+  text-decoration: underline;
+}
+
+.digitar {
+  overflow: hidden; /* esconde o texto */
+  /* border-right: 0.10em solid orange; adiciona um efeito de digitação */
+  white-space: nowrap; /* impede que o texto quebre em várias linhas */
+  margin: 0 auto; /* centraliza o texto na tela */
+  animation: digitar 5s steps(30, end); /* animação que simula a digitação */
+}
+
+@keyframes digitar {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+/* 
+  background-repeat: no-repeat; | nao vai repetir a imagem ou item no background
+  background-position: top center; | só o center vai pro centro, com o top ele vai a imagem toda com o topo para o centro.
+  background-size: cover; | faz a imagem cobrir todo o espaço disponível
+
+  width | aumenta a caixa pros lados, tamanho horizontal
+  height | aumenta a caixa, tamanho vertical
+  border: 1px é o tamanho da linha, o solid deixa solido ? seguio da cor
+  
+  // procurar um jeito de fazer o border aplicar o radius sem escrever border radius
+
+
+  border-radius: 15px aumenta bordinha
+
+  margin: auto; faz a caixinha ir pro centro/topo, preenchendo entre igual os lados esquerdos, direitos e inferiores.
+
+  margin /nova anotação 
+
+  margin faz um ajuste de espaçamento entre as areas fora do elemento, tambem pode ser utilizado como margin-top, left, right e bottom
+
+  *ainda nao sei o que é o bottom
+
+  Padding: Em programação, "padding" se refere a um espaço em branco (geralmente vazio) que é adicionado ao redor de um elemento para preencher o espaço entre o conteúdo e a borda
+
+ TOP = em cima, RIGHT = direita, LEFT = esquerda, BOTTOM = em baixo
+
+ exemplo te espaçamentos com o margin
+
+ margin: 56px auto 0px auto; // 56px em cima, auto no lado direito, 0px em baixo, auto no lado esquerdo.
+ 
+ margin: 56px auto 0px; // 56px em cima, auto na direita e na esquerda, e 0px em baixo.
+
+ margin-top: 56px; // acho que afeta só no espaçamento da parte de cima.
+ right, left e bottom a mesma coisa.
+
+
+ padding acredito que funcione da mesma forma
+
+ * atualizando padding: 
+
+ele dá espaçamento dentro da caixa, enquanto o margin dá espaçamento fora da caixa.
+
+
+nesse exemplo: 
+ul {
+  list-style: none; remove os pontinhos da lista
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+ul li {
+  border: 1px solid #e2e8f0;
+}
+
+o flex-direction: row coloca os elementos um ao lado do outro, como o exemplo acima é com li os textos ficam um ao lado do outro, ou um abaixo do outro com column.
+
+gap: 8px dá um espaçamento de 8px entre os elementos, no caso os li's ficam com uma distanciad e 8px entre eles
+
+alinhamento de posicionamento de display block é + - com
+ position: relative;
+  width: 64px;
+  margin: 4px auto;
+  margin vai dar espaçamento em cima e em baixo, dos lados, tanto faz, mas vai ser por fora da caixa do elemento
+  padding vai fz a mesma coisa so que dentro
+
+  display flex pra alinhar ao centro é só usar o align-items: center; e o justify-content: center;
+
+  text-align: center; alinha o texto ao centro
+
+*/
